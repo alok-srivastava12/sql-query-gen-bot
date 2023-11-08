@@ -7,6 +7,12 @@ public class Choice {
     public int index;
     public Message message;
 
+    public Choice(int index, Message message, String finish_reason) {
+        this.index = index;
+        this.message = message;
+        this.finish_reason = finish_reason;
+    }
+
     public int getIndex() {
         return index;
     }
@@ -21,6 +27,9 @@ public class Choice {
 
     public void setMessage(Message message) {
         this.message = message;
+    }
+
+    public Choice() {
     }
 
     public String getFinish_reason() {

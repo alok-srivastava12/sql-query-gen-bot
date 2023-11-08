@@ -11,6 +11,9 @@ public class Message {
         this.role = role;
     }
 
+    public Message() {
+    }
+
     public Message(String role, String content) {
         this.role = role;
         this.content = content;
