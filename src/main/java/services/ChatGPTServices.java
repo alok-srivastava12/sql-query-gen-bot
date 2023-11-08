@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import request.ChatGPTRequest;
+import request.Message;
 import response.ChatGPTResponse;
 
 
@@ -18,7 +19,7 @@ public class ChatGPTServices {
     @Value("${openai.api.key}")
     private String apiKey;
 
-    private static final String OPEN_AI_CHAT_ENDPOINT = "https://api.openai.com/v1/chat/completions";
+    private static final String OPEN_AI_CHAT_ENDPOINT = "https://ce-canadaeast-ai-stage01.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-06-01-preview";
 
     private RestTemplate restTemplate;
 
@@ -30,7 +31,7 @@ public class ChatGPTServices {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("Authorization", "Bearer " + apiKey);
+        headers.set("api-key", apiKey);
 
         ChatGPTRequest chatGPTRequest = new ChatGPTRequest();
         chatGPTRequest.setModel("gpt-3.5-turbo"); // Most capable GPT-3.5 model and optimized for chat.
